@@ -1,0 +1,75 @@
+<style>
+.affi-wrap{max-width:860px;margin:0 auto;}
+.affi-hero{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid #e9ecef;border-radius:12px;padding:16px;}
+.affi-hero img{width:140px;height:auto;border-radius:10px;object-fit:cover;border:1px solid #eee}
+.badge{display:inline-block;font-size:.82rem;padding:4px 8px;border-radius:999px;background:#f1f5f9;border:1px solid #e2e8f0;margin-right:6px}
+.lead{font-size:1.05rem;line-height:1.9}
+.note{background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:12px;margin:16px 0}
+.h2{font-size:1.35rem;margin:28px 0 10px;font-weight:700}
+.h3{font-size:1.12rem;margin:22px 0 8px;font-weight:700}
+.kakomi{border:1px solid #e2e8f0;border-radius:10px;padding:14px;background:#fff}
+.flex{display:flex;gap:14px;flex-wrap:wrap}
+.point{flex:1 1 260px;border:1px dashed #d1d5db;border-radius:10px;padding:12px;background:#fafafa}
+.cta-btn{display:inline-block;padding:12px 18px;border-radius:999px;text-align:center;text-decoration:none;border:1px solid #0ea5e9;background:#e0f2fe}
+.cta-btn:hover{filter:brightness(0.98)}
+.cta-area{border:1px solid #e2e8f0;border-radius:12px;padding:16px;background:#f8fafc;margin:18px 0}
+.cta-caption{font-size:.9rem;color:#475569;margin-top:6px}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem}
+.tbl th,.tbl td{border:1px solid #e5e7eb;padding:10px;vertical-align:top}
+.tbl th{background:#f8fafc;white-space:nowrap}
+.small{font-size:.88rem;color:#64748b}
+.toc{border:1px solid #e2e8f0;border-radius:10px;padding:12px;background:#ffffff}
+.toc a{display:block;padding:6px 0;text-decoration:none}
+.badge-new{background:#ecfeff;border:1px solid #a5f3fc}
+.hr{height:1px;background:#eceff1;border:0;margin:24px 0}
+.tips{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:680px){.tips{grid-template-columns:1fr 1fr 1fr}}
+.tip{border:1px solid #e2e8f0;border-radius:10px;padding:10px;background:#fcfcfc}
+.evi{border:1px solid #dbeafe;background:#eff6ff;border-radius:10px;padding:12px}
+</style>
+
+<article class="affi-wrap" itemscope itemtype="https://schema.org/BlogPosting">
+  <header>
+    <div class="badge">#美容 #体験レビュー</div>
+    <div class="badge badge-new">特集：{特集キーワード}</div>
+    <h1 itemprop="headline">{悩みキーワード}が気になる私が試した「{商品名}」体験談｜使い方・効果・損しない買い方まで</h1>
+    <p class="small">更新日：{更新日}｜執筆：みおり</p>
+  </header>
+
+  <section class="affi-hero">
+    <img src="{商品画像URL1}" alt="{商品名}の外箱と中身の写真（テクスチャが分かる角度）">
+    <div>
+      <p class="lead" itemprop="description">
+        正直、{悩みキーワード}は「何をしても続かない…」が本音でした。そこで口コミの多かった<strong>{商品名}</strong>を{継続日数}続けてみたところ、<u>朝のメイクのり</u>や<u>鏡を見る気持ち</u>に少し変化がありました。結論を先に言うと、{結論チラ見せ}。私の実体験と損しない買い方をまとめます。
+      </p>
+      <div class="cta-area">
+        <a class="cta-btn" href="{楽天_最安候補}" target="_blank" rel="nofollow noopener" data-track="cta_top_click">【先に価格を見る】{商品名}の最安値をチェック</a>
+        <div class="cta-caption">※在庫・ポイント倍率・クーポンは日々変動します。比較してからがおすすめです。</div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="記事の目次">
+    <strong>目次</strong>
+    <a href="#before">私の悩みとビフォー</a>
+    <a href="#action">実際にやったこと（使い方）</a>
+    <a href="#after">変化とリアルな感想</a>
+    <a href="#evidence">学術メモ（Evidence）</a>
+    <a href="#tips">豆知識ミニコラム ×3</a>
+    <a href="#product">【結論】{商品名}はこんな人におすすめ</a>
+    <a href="#compare">比較表</a>
+    <a href="#review">みんなの口コミ</a>
+    <a href="#faq">よくある質問</a>
+    <a href="#buy">損しない買い方</a>
+  </nav>
+
+  <!-- 比較表（Rakuten自動取得を反映。未取得時は自然に空欄or非表示でも整う） -->
+  <section id="compare">
+    <h2 class="h2">比較表</h2>
+    <table class="tbl">
+      <tr><th>商品名</th><th>特徴</th><th>参考価格</th><th>リンク</th></tr>
+      <tr><td>{比較商品A_名称}</td><td>{比較商品A_特徴}</td><td>{比較商品A_価格}</td><td><a href="{楽天_比較A}" target="_blank" rel="nofollow noopener">楽天で見る</a></td></tr>
+      <tr><td>{比較商品B_名称}</td><td>{比較商品B_特徴}</td><td>{比較商品B_価格}</td><td><a href="{楽天_比較B}" target="_blank" rel="nofollow noopener">楽天で見る</a></td></tr>
+    </table>
+  </section>
+</article>
