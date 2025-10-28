@@ -1,0 +1,50 @@
+name: Generate & (Optional) Post
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'Target URL'
+        required: true
+        type: string
+      keyword:
+        description: 'Keyword override (optional)'
+        required: false
+        type: string
+      post_to_wp:
+        description: 'Post to WordPress? (true/false)'
+        required: false
+        default: 'false'
+        type: string
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Generate
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+          DEFAULT_SOURCE_URL: ${{ secrets.DEFAULT_SOURCE_URL }}
+          DEFAULT_RAKUTEN_LINK: ${{ secrets.DEFAULT_RAKUTEN_LINK }}
+          RAKUTEN_APPLICATION_ID: ${{ secrets.RAKUTEN_APPLICATION_ID }}
+          RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+          WP_BASE_URL: ${{ secrets.WP_BASE_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          WP_POST_STATUS: ${{ secrets.WP_POST_STATUS }}
+          WP_CATEGORY_ID: ${{ secrets.WP_CATEGORY_ID }}
+          WP_TAGS: ${{ secrets.WP_TAGS }}
+        run: |
+          python run.py --url "${{ inputs.url }}" --keyword "${{ inputs.keyword }}" --post "${{ inputs.post_to_wp }}"
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: miori-html
+          path: dist/*.html
